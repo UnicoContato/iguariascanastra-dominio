@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iguarias Canastra - Sabores Autênticos</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#fbbf24',
+                            DEFAULT: '#d97706',
+                            dark: '#92400e',
+                            accent: '#78350f'
+                        },
+                        rustic: '#292524',
+                        cream: '#fffbeb'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    backgroundImage: {
+                        'pattern': "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d97706' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-stone-50 text-stone-800 font-sans antialiased overflow-x-hidden selection:bg-brand selection:text-white">
+
+    <header id="main-header" class="fixed w-full top-0 z-50 transition-all duration-300 bg-transparent py-4">
+        <div class="absolute inset-0 bg-white/90 backdrop-blur-md shadow-sm opacity-0 transition-opacity duration-300" id="header-bg"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex justify-between items-center">
+                <div class="flex-shrink-0 flex items-center gap-2 group cursor-pointer">
+                    <div class="w-10 h-10 bg-brand rounded-full flex items-center justify-center text-white font-serif font-bold text-xl shadow-lg group-hover:bg-brand-dark transition-colors">I</div>
+                    <span class="text-2xl font-serif font-bold text-rustic tracking-tight group-hover:text-brand-dark transition-colors">Iguarias Canastra</span>
+                </div>
+                
+                <div class="hidden md:flex space-x-1 bg-white/50 backdrop-blur-sm p-1 rounded-full border border-stone-200/50 shadow-sm">
+                    <a href="#inicio" class="px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-brand-dark hover:bg-white transition-all">Início</a>
+                    <a href="#sobre" class="px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-brand-dark hover:bg-white transition-all">Sobre</a>
+                    <a href="#servicos" class="px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-brand-dark hover:bg-white transition-all">Produtos</a>
+                    <a href="#galeria" class="px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-brand-dark hover:bg-white transition-all">Galeria</a>
+                    <a href="#contato" class="px-5 py-2 rounded-full text-sm font-medium text-stone-600 hover:text-brand-dark hover:bg-white transition-all">Contato</a>
+                </div>
+
+                <div class="hidden md:flex items-center">
+                    <a href="https://wa.me/557388377198" target="_blank" class="bg-brand hover:bg-brand-dark text-white px-6 py-2.5 rounded-full font-semibold flex items-center gap-2 transition-all transform hover:-translate-y-0.5 hover:shadow-lg shadow-md group">
+                        <span class="font-sans">Pedir Agora</span>
+                        <svg class="w-5 h-5 group-hover:rotate-12 transition-transform" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                    </a>
+                </div>
+                
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-stone-700 p-2 rounded-md hover:bg-stone-100 focus:outline-none">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div id="mobile-menu" class="hidden md:hidden absolute top-full left-0 w-full bg-white/95 backdrop-blur-xl border-b border-stone-200 shadow-xl transition-all">
+            <div class="px-4 py-6 space-y-2 flex flex-col items-center">
+                <a href="#inicio" class="mobile-link w-full text-center py-3 text-lg font-medium text-stone-700 hover:text-brand hover:bg-stone-50 rounded-xl">Início</a>
+                <a href="#sobre" class="mobile-link w-full text-center py-3 text-lg font-medium text-stone-700 hover:text-brand hover:bg-stone-50 rounded-xl">Sobre Nós</a>
+                <a href="#servicos" class="mobile-link w-full text-center py-3 text-lg font-medium text-stone-700 hover:text-brand hover:bg-stone-50 rounded-xl">Produtos</a>
+                <a href="#galeria" class="mobile-link w-full text-center py-3 text-lg font-medium text-stone-700 hover:text-brand hover:bg-stone-50 rounded-xl">Galeria</a>
+                <a href="#contato" class="mobile-link w-full text-center py-3 text-lg font-medium text-stone-700 hover:text-brand hover:bg-stone-50 rounded-xl">Contato</a>
+                <a href="https://wa.me/557388377198" target="_blank" class="w-full text-center mt-4 bg-green-600 text-white px-4 py-4 rounded-xl font-bold shadow-lg">Chamar no WhatsApp</a>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="img/6.jpeg" alt="Queijo Minas Artesanal" class="w-full h-full object-cover animate-kenburns">
+            <div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-stone-900/90 via-transparent to-transparent"></div>
+        </div>
+        
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20">
+            <div class="max-w-3xl scroll-reveal">
+                <div class="inline-block bg-brand/90 backdrop-blur-sm text-white px-4 py-1.5 rounded-full text-sm font-semibold tracking-wide uppercase mb-6 shadow-lg border border-white/20">
+                    Sabor que conecta gerações
+                </div>
+                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white mb-8 leading-tight drop-shadow-2xl">
+                    A Essência da <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-light to-brand">Canastra</span>
+                </h1>
+                <p class="text-xl md:text-2xl text-stone-200 mb-10 font-light max-w-2xl leading-relaxed drop-shadow-md border-l-4 border-brand pl-6">
+                    Levamos o melhor da tradição mineira para o sul da Bahia. Queijos, doces e charcutaria com alma e história.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="https://wa.me/557388377198" target="_blank" class="inline-flex justify-center items-center bg-brand hover:bg-brand-dark text-white font-bold text-lg px-10 py-5 rounded-full transition-all transform hover:scale-105 hover:shadow-orange-500/30 shadow-2xl pulse-animation">
+                        Faça seu Pedido
+                    </a>
+                    <a href="#sobre" class="inline-flex justify-center items-center bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 font-medium text-lg px-10 py-5 rounded-full transition-all">
+                        Conheça Mais
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50 hidden md:block">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <section id="sobre" class="py-28 bg-cream bg-pattern relative overflow-hidden">
+        <div class="absolute -top-24 -right-24 w-96 h-96 bg-brand/10 rounded-full blur-3xl"></div>
+        <div class="absolute top-1/2 -left-24 w-72 h-72 bg-brand-light/10 rounded-full blur-3xl"></div>
+
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                <div class="order-2 md:order-1 relative scroll-reveal">
+                    <div class="relative z-10 rounded-3xl overflow-hidden shadow-2xl border-8 border-white transform rotate-2 hover:rotate-0 transition-transform duration-700">
+                        <img src="img/7.jpeg" alt="Produtos da Canastra" class="w-full object-cover h-[500px]">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <p class="font-serif text-2xl italic">"Do produtor para sua mesa"</p>
+                        </div>
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 w-full h-full border-2 border-brand rounded-3xl -z-10 md:block hidden"></div>
+                </div>
+                
+                <div class="order-1 md:order-2 scroll-reveal transition-delay-200">
+                    <h2 class="text-sm font-bold text-brand uppercase tracking-widest mb-3">Nossa História</h2>
+                    <h3 class="text-4xl md:text-5xl font-serif font-bold text-rustic mb-8 leading-tight">
+                        Respeito à <span class="text-brand">Tradição</span> e ao Sabor Verdadeiro
+                    </h3>
+                    <div class="space-y-6 text-lg text-stone-600 leading-relaxed font-light">
+                        <p>
+                            Somos uma ponte entre o campo e a sua casa. Valorizamos a <strong class="text-brand-dark font-semibold">Iguaria Artesanal</strong>, conectando famílias produtoras que dedicam suas vidas a criar sabores únicos a famílias consumidoras que buscam qualidade.
+                        </p>
+                        <p>
+                            Desde 2017 no Sul da Bahia, nossa missão vai além de vender alimentos. Nós distribuímos histórias. Cada queijo curado, cada doce de leite, cada embutido carrega o saber de gerações.
+                        </p>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-brand mt-4">
+                            <p class="italic text-stone-500 font-serif text-xl">
+                                "Trabalhamos para que essas iguarias proporcionem experiências únicas e verdadeiras em cada refeição."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicos" class="py-28 bg-stone-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-stone-100 overflow-hidden scroll-reveal">
+                    <div class="h-2 bg-gradient-to-r from-yellow-400 to-yellow-600"></div>
+                    <div class="p-10 relative">
+                        <div class="w-16 h-16 bg-yellow-50 text-yellow-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M酪21 15.176l-6.697-9.456C13.235 4.197 10.765 4.197 9.697 5.72L3 15.176c-1.157 1.636.009 3.824 2.003 3.824h13.994C20.991 19 22.157 16.812 21 15.176z"></path>
+                                <circle cx="12" cy="13" r="1.5" fill="currentColor" class="opacity-20"></circle>
+                                <circle cx="15" cy="16" r="1" fill="currentColor" class="opacity-20"></circle>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4L3 19h18L12 4z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 12a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17a1 1 0 1 0 0-2 1 1 0 0 0 0 2Z"/>
+                            </svg>
+                            <svg class="w-9 h-9 absolute" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.605 2.697a2.5 2.5 0 0 1 2.79 0l6.93 4.62a2.5 2.5 0 0 1 .684 3.44l-4.62 6.93a2.5 2.5 0 0 1-3.44.683l-6.93-4.62a2.5 2.5 0 0 1-.683-3.44l4.62-6.93a2.5 2.5 0 0 1 .649-.683"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12.5 12.5a2.5 2.5 0 1 1-5-5 2.5 2.5 0 0 1 5 5Z"></path>
+                            </svg>
+                             <svg class="w-9 h-9 bg-yellow-50" fill="none" stroke="currentColor" viewBox="0 0 24 24" style="background: inherit;">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2Z" style="display:none"/> 
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M22 13.06c0-1.25-.63-2.38-1.68-3.03L13.29 5.2a3.504 3.504 0 0 0-3.58 0L2.68 10.03C1.63 10.68 1 11.81 1 13.06V19a2 2 0 0 0 2 2h18a2 2 0 0 0 2-2v-5.94Z"></path>
+                                <circle cx="8" cy="14" r="1.5" fill="currentColor" opacity="0.4"></circle>
+                                <circle cx="14" cy="16" r="1.5" fill="currentColor" opacity="0.4"></circle>
+                                <circle cx="16" cy="12" r="1" fill="currentColor" opacity="0.4"></circle>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-rustic mb-4 group-hover:text-brand transition-colors">Queijos Artesanais</h3>
+                        <p class="text-stone-600 leading-relaxed mb-6">Da Canastra ao Serro. Queijos premiados, com texturas que variam do fresco ao extra curado.</p>
+                        <a href="#galeria" class="text-brand font-semibold text-sm uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">Ver Fotos <span class="text-lg">→</span></a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-stone-100 overflow-hidden scroll-reveal transition-delay-200">
+                    <div class="h-2 bg-gradient-to-r from-red-500 to-red-700"></div>
+                    <div class="p-10 relative">
+                        <div class="w-16 h-16 bg-red-50 text-red-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.5 5.068A3.003 3.003 0 0 0 13.78 3.5C11.66 4.1 9.92 5.56 8.32 7.16c-1.95 1.95-3.6 4.19-4.82 6.56a2.98 2.98 0 0 0 3.99 3.99c2.37-1.22 4.61-2.87 6.56-4.82 1.6-1.6 3.06-3.34 3.66-5.46a3.003 3.003 0 0 0-1.21-3.362Z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m11 10 2 2"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m14 7 2 2"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 13l2 2"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-rustic mb-4 group-hover:text-brand transition-colors">Charcutaria</h3>
+                        <p class="text-stone-600 leading-relaxed mb-6">Salames defumados, torresmo de rolo crocante e embutidos com tempero na medida certa.</p>
+                        <a href="#galeria" class="text-brand font-semibold text-sm uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">Ver Fotos <span class="text-lg">→</span></a>
+                    </div>
+                </div>
+
+                <div class="group bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border border-stone-100 overflow-hidden scroll-reveal transition-delay-400">
+                    <div class="h-2 bg-gradient-to-r from-amber-500 to-amber-700"></div>
+                    <div class="p-10 relative">
+                        <div class="w-16 h-16 bg-amber-50 text-amber-600 rounded-2xl flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-300">
+                            <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8.5V7a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v1.5"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 8.5H6a1 1 0 0 0-1 1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-10a1 1 0 0 0-1-1Z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 13.5h6"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 5V3"></path>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-serif font-bold text-rustic mb-4 group-hover:text-brand transition-colors">Doces Mineiros</h3>
+                        <p class="text-stone-600 leading-relaxed mb-6">Doce de leite Viçosa, goiabada cascão Zélia e compotas que abraçam o paladar.</p>
+                        <a href="#galeria" class="text-brand font-semibold text-sm uppercase tracking-wide flex items-center gap-1 group-hover:gap-2 transition-all">Ver Fotos <span class="text-lg">→</span></a>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <section id="galeria" class="py-28 bg-stone-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 scroll-reveal">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold">Vitrine de Sabores</h2>
+                    <p class="mt-4 text-stone-400 max-w-md">Cada imagem representa um produtor, uma família e uma tradição mantida viva.</p>
+                </div>
+                <a href="https://wa.me/557388377198" target="_blank" class="mt-6 md:mt-0 px-6 py-3 border border-stone-600 rounded-full hover:bg-white hover:text-stone-900 transition-all font-medium">Ver Catálogo Completo</a>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <div class="group relative overflow-hidden rounded-xl md:col-span-2 md:row-span-2 scroll-reveal">
+                    <img src="img/9.jpeg" alt="Queijo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
+                    <div class="absolute bottom-0 left-0 p-6 translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-xl scroll-reveal transition-delay-200">
+                    <img src="img/2.jpeg" alt="Queijo Premiado" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/60 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <p class="text-sm font-bold">Queijos</p>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-xl scroll-reveal transition-delay-200">
+                    <img src="img/1.jpeg" alt="Doce de Leite" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                    <div class="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+                    <div class="absolute bottom-0 left-0 w-full p-4 bg-black/60 backdrop-blur-sm transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <p class="text-sm font-bold">Doces</p>
+                    </div>
+                </div>
+
+                <div class="group relative overflow-hidden rounded-xl md:col-span-2 scroll-reveal">
+                    <img src="img/3.jpeg" alt="Torresmo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+
+                <div class="group relative overflow-hidden rounded-xl scroll-reveal">
+                    <img src="img/4.jpeg" alt="Goiabada" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+
+                <div class="group relative overflow-hidden rounded-xl scroll-reveal">
+                    <img src="img/5.jpeg" alt="Salame" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+                
+                 <div class="group relative overflow-hidden rounded-xl md:col-span-2 scroll-reveal">
+                    <img src="img/8.jpeg" alt="Doce em Cubos" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="py-24 bg-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-brand/5 rounded-full blur-3xl"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-12 scroll-reveal">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-rustic mb-4">Central de Atendimento</h2>
+                <p class="text-lg text-stone-600">Dúvidas sobre entregas ou produtos? Fale com a gente!</p>
+            </div>
+            
+            <div class="bg-stone-50 rounded-3xl border border-stone-100 shadow-xl overflow-hidden scroll-reveal">
+                <div class="grid grid-cols-1 md:grid-cols-2">
+                    
+                    <div class="p-8 md:p-12">
+                        <h3 class="text-2xl font-serif font-bold text-rustic mb-8">Canais de Contato</h3>
+                        
+                        <div class="space-y-8">
+                            <div class="flex items-start gap-4 group">
+                                <div class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-stone-400 uppercase font-bold tracking-wider">WhatsApp & Pedidos</p>
+                                    <p class="text-stone-800 font-medium text-lg">(73) 8837-7198</p>
+                                    <a href="https://wa.me/557388377198" target="_blank" class="text-sm text-green-600 font-semibold hover:underline mt-1 inline-block">Clique para iniciar conversa →</a>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4 group">
+                                <div class="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform">
+                                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                                </div>
+                                <div>
+                                    <p class="text-xs text-stone-400 uppercase font-bold tracking-wider">Email</p>
+                                    <p class="text-stone-800 font-medium break-all">cintiabarbosa1@hotmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-stone-100 p-8 md:p-12 flex flex-col justify-center border-l border-stone-200/50">
+                        <div class="mb-8">
+                            <h3 class="text-xl font-serif font-bold text-rustic mb-4">Dados da Empresa</h3>
+                            <div class="space-y-4 text-sm text-stone-600">
+                                <div>
+                                    <p class="font-bold text-stone-800">Razão Social:</p>
+                                    <p>IGUARIAS DA CANASTRA COMERCIO E ATACADO DE ALIMENTOS LTDA</p>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-stone-800">CNPJ:</p>
+                                    <p>45.062.704/0001-27</p>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-stone-800">Sede Administrativa:</p>
+                                    <p>Caminho 09, Urbis II, Nº 6</p>
+                                    <p>Itamaraju - BA, 45.836-000</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-white p-4 rounded-xl shadow-sm flex items-center gap-3">
+                            <div class="bg-brand/10 p-2 rounded-full text-brand">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 8h14M5 8a2 2 0 110-4h14a2 2 0 110 4M5 8v10a2 2 0 002 2h10a2 2 0 002-2V8m-9 4h4"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-xs text-stone-500">Enviamos para: Porto, Cabrália, Arraial, Trancoso, Itamaraju, Eunápolis, Texas, Prado, Alcobaça, Caravelas, Cumuru, Itabela</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-rustic text-stone-400 py-12 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+                <div class="text-center md:text-left">
+                    <h4 class="font-serif text-2xl text-white font-bold tracking-wide">IGUARIAS CANASTRA</h4>
+                    <p class="text-sm mt-2">Sabores que contam histórias.</p>
+                </div>
+                
+                <div class="flex gap-6">
+                    <a href="https://www.instagram.com/iguariasdacanastraecia/" target="_blank" class="w-10 h-10 rounded-full bg-white/5 hover:bg-brand flex items-center justify-center transition-colors text-white"><svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+                </div>
+            </div>
+            
+            <div class="mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs">
+                <p>© 2026 Iguarias Canastra. Todos os direitos reservados.</p>
+                <div class="mt-4 md:mt-0">
+                    <button id="open-privacy" class="hover:text-white transition-colors">Política de Privacidade</button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="privacy-modal" class="fixed inset-0 z-[100] hidden" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="fixed inset-0 bg-stone-900/80 backdrop-blur-sm transition-opacity opacity-0" id="modal-backdrop"></div>
+        <div class="fixed inset-0 z-10 overflow-y-auto">
+            <div class="flex min-h-full items-center justify-center p-4 text-center sm:p-0">
+                <div class="relative transform overflow-hidden rounded-2xl bg-white text-left shadow-2xl transition-all sm:my-8 sm:w-full sm:max-w-lg opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95" id="modal-panel">
+                    <div class="bg-white px-6 pb-6 pt-8">
+                        <div class="text-center sm:text-left">
+                            <h3 class="text-2xl font-serif font-bold text-rustic mb-6 border-b pb-4" id="modal-title">Política de Privacidade</h3>
+                            <div class="h-64 overflow-y-auto pr-2 text-sm text-stone-600 space-y-4 custom-scrollbar leading-relaxed">
+                                <p>Esta Política de Privacidade descreve como a Iguarias Canastra coleta, usa e protege as informações pessoais que você fornece em nosso site.</p>
+                                <p><strong>1. Coleta de Informações:</strong> Este site é de caráter institucional e não coleta dados pessoais automaticamente (como cookies de rastreamento avançado) nem possui formulários de cadastro de banco de dados. O único dado coletado é quando você clica voluntariamente para entrar em contato via WhatsApp.</p>
+                                <p><strong>2. Uso das Informações:</strong> As informações fornecidas via contato direto são utilizadas exclusivamente para responder às suas solicitações e processar pedidos.</p>
+                                <p><strong>3. Compartilhamento:</strong> Não vendemos, trocamos ou transferimos suas informações pessoais para terceiros.</p>
+                                <p><strong>4. Segurança:</strong> Implementamos medidas de segurança para manter suas informações pessoais seguras.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-stone-50 px-6 py-4 sm:flex sm:flex-row-reverse">
+                        <button type="button" id="close-modal" class="inline-flex w-full justify-center rounded-xl bg-brand hover:bg-brand-dark px-6 py-3 text-sm font-bold text-white shadow-lg transition-all transform hover:-translate-y-0.5 sm:ml-3 sm:w-auto">Compreendido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
